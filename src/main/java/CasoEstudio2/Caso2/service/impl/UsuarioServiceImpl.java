@@ -42,7 +42,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public void save(Usuario usuario) {
-        // En esta implementación básica ignoramos el parámetro crearRolUser
         usuarioDao.save(usuario);
     }
 

@@ -26,21 +26,17 @@ public class UsuarioDetailsServiceImpl implements UsuarioDetailsService, UserDet
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Busca el usuario por el username en la tabla
         Usuario usuario = usuarioDao.findByUsername(username);
 
-        // Si no existe el usuario lanza una excepción
         if (usuario == null) {
             throw new UsernameNotFoundException(username);
         }
 
-        // Sacamos los roles asociados al usuario
         var roles = new ArrayList<GrantedAuthority>();
         for (Rol rol : usuario.getRoles()) {
             roles.add(new SimpleGrantedAuthority(rol.getNombre()));
         }
 
-        // Se devuelve el usuario como objeto User de Spring Security
         return new User(usuario.getUsername(), usuario.getPassword(), roles);
     }
 }
