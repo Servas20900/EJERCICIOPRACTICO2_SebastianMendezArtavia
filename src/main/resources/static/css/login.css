@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f4f4f9;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Login Container */
+.login-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Left section (background) */
+.login-left {
+  flex: 1;
+  background: linear-gradient(135deg, #d57a7a, #f9c46b); /* Usando tonos cálidos similares */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.login-left h1 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  font-family: 'Great Vibes', cursive;
+}
+
+/* Right section (form) */
+.login-right {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Form title and text */
+.login-right h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.login-right p {
+  font-size: 16px;
+  color: #777777;
+  margin-bottom: 30px;
+}
+
+/* Form Labels and Inputs */
+form label {
+  font-weight: 600;
+  display: block;
+  margin: 15px 0 5px;
+  color: #555555;
+}
+
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Options (remember me and links) */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  font-size: 14px;
+  color: #555555;
+}
+
+.options input {
+  margin-right: 8px;
+}
+
+.options a {
+  text-decoration: none;
+  color: #d57a7a;
+}
+
+.options a:hover {
+  color: #b85c5c;
+}
+
+/* Login Button */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #d57a7a; /* Botón de color cálido */
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #b85c5c;
+}
+
+/* Signup Text */
+.signup {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555555;
+}
+
+.signup a {
+  color: #d57a7a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar (global style) */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.navbar-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Great Vibes", cursive;
+  font-size: 36px;
+  color: #d57a7a;
+}
+
+/* Links in navbar */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.navbar-links li a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #d57a7a;
+}

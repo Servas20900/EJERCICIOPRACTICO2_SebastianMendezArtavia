@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f4f4f9; /* Fondo suave claro */
+  color: #333333; /* Texto oscuro */
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 50px;
+  color: #222222; /* Título oscuro */
+}
+
+h2, h3, h4 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #444444; /* Subtítulos oscuros pero suaves */
+}
+
+p {
+  font-size: 18px;
+  color: #666666; /* Texto suave y legible */
+}

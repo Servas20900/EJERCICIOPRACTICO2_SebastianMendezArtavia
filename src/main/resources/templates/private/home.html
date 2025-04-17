@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head th:replace="~{common/private_navigation :: head}">
+</head>
+<body>
+
+    <header th:replace="~{common/private_navigation :: header}" />
+
+    <section class="hero">
+        <img src="/img/10.png" class="fondo" alt="Pasteles">
+        <div class="hero-content">
+            <h1>NAME</h1>
+            <p>txt</p>
+            <a th:href="@{/promociones}" class="btn">bttn</a>
+        </div>
+    </section>
+
+    <section class="about">
+        <h2>Quiénes somos</h2>
+        <p>
+            txt
+        </p>
+
+    </section>
+
+    <footer th:replace="~{common/private_navigation :: footer}" />
+
+</body>
+</html>

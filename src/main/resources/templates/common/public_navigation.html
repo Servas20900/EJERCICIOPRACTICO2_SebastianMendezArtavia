@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:fragment="head">
+    <title>Caso2</title>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/png" th:href="@{/img/image.png}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" th:href="@{/css/commun.css}"/>
+    <link rel="stylesheet" th:href="@{/css/public_navigation.css}"/>
+</head>
+<body>
+    <header th:fragment="header">
+        <nav class="public-navbar">
+            <div class="public-navbar-logo">
+                <a th:href="@{/}">NAME</a>
+            </div>
+            <ul class="public-navbar-links">
+                <li><a th:href="@{/login}">LogIn</a></li>
+                <li><a th:href="@{/singup}">SignUp</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <footer>
+        <div class="footer">
+            <p>© 2025 Patisserie. Todos los derechos reservados.</p>
+            <div>
+                <a href="#" class="comun-social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="comun-social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="comun-social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

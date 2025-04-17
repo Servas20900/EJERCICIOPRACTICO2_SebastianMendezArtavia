@@ -1,0 +1,87 @@
+/* Navbar privada */
+.private-navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.private-navbar-items {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.private-navbar-logo {
+  font-family: "Great Vibes", cursive;
+  font-size: 36px;
+  color: #d57a7a;
+  text-decoration: none;
+}
+
+.private-navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.private-navbar-links li a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.private-navbar-links li a:hover {
+  color: #d57a7a;
+}
+
+.private-navbar-carrito {
+  margin-left: 20px;
+}
+
+.private-cart-icon {
+  color: #333333;
+  font-size: 22px;
+  transition: color 0.3s ease;
+}
+
+.private-cart-icon:hover {
+  color: #d57a7a;
+}
+
+/* Footer común */
+.comun-footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f1f1f1;
+  color: #333333;
+  margin-top: 50px;
+  flex-direction: column;
+}
+
+.comun-footer-container p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.comun-social-link {
+  color: #d57a7a;
+  font-size: 20px;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.comun-social-link:hover {
+  color: #b85c5c;
+}

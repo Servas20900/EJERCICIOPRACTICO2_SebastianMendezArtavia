@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:fragment="head">
+    <title>Caso2</title>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/png" th:href="@{/img/image.png}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/commun.css}"/>
+    <link rel="stylesheet" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" th:href="@{/css/private_navigation.css}"/>
+</head>
+<body>
+    <header th:fragment="header">
+        <nav class="private-navbar">
+            <div class="private-navbar-items">
+                <div><a class="private-navbar-logo" th:href="@{/}">NAME</a></div>
+                <br>
+                <ul class="private-navbar-links">
+                    <li><a th:href="@{/1}">1</a></li>
+                    <li><a th:href="@{/2}">2</a></li>
+                    <li><a th:href="@{/3}">3</a></li>
+                    <li><a th:href="@{/4}">4</a></li>
+                    <div class="private-navbar-carrito">
+                        <a th:href="@{/carrito/listado}" class="private-cart-icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <footer>
+        <div class="comun-footer-container">
+            <p>© 2025 Patisserie. Todos los derechos reservados.</p>
+            <div>
+                <a href="#" class="comun-social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="comun-social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="comun-social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
