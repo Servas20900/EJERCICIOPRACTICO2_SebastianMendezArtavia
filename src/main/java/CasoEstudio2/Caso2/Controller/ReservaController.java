@@ -1,6 +1,5 @@
 package CasoEstudio2.Caso2.Controller;
 
-
 import CasoEstudio2.Caso2.domain.Funcion;
 import CasoEstudio2.Caso2.domain.Reserva;
 import CasoEstudio2.Caso2.domain.Usuario;
@@ -23,12 +22,12 @@ public class ReservaController {
     @Autowired
     private FuncionService funcionService;
 
-    @GetMapping("/mis-reservas")
-    public String listarMisReservas(Model model, Principal principal) {
+    @GetMapping
+    public String listarReservas(Model model, Principal principal) {
         Usuario usuario = new Usuario();
         usuario.setUsername(principal.getName());
         model.addAttribute("reservas", reservaService.listarReservasPorUsuario(usuario));
-        return "private/usuario/mis-reservas";
+        return "private/Reserva/listado";
     }
 
     @GetMapping("/nueva/{idFuncion}")
@@ -38,18 +37,18 @@ public class ReservaController {
         Reserva reserva = new Reserva();
         reserva.setFuncion(funcion);
         model.addAttribute("reserva", reserva);
-        return "private/usuario/formulario-reserva";
+        return "private/Reserva/formulario";
     }
 
     @PostMapping("/guardar")
     public String guardarReserva(Reserva reserva, BindingResult result, Principal principal) {
         if (result.hasErrors()) {
-            return "private/usuario/formulario-reserva";
+            return "private/Reserva/formulario";
         }
         Usuario usuario = new Usuario();
         usuario.setUsername(principal.getName());
         reserva.setUsuario(usuario);
         reservaService.guardar(reserva);
-        return "redirect:/reservas/mis-reservas";
+        return "redirect:/reservas";
     }
 }

@@ -11,9 +11,4 @@ public class PrivateController {
         return "private/home";
     }
 
-    @GetMapping("/private/") 
-    public String mostrarPeliculaListado() {
-        return "private/admin/peliculas/listado";
-    }
-
 }

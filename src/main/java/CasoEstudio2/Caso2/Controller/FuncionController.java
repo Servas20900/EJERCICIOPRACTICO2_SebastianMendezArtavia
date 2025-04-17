@@ -6,11 +6,10 @@ import CasoEstudio2.Caso2.service.PeliculaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/admin/funcion")
+@RequestMapping("/funcion")
 public class FuncionController {
 
     @Autowired
@@ -19,45 +18,40 @@ public class FuncionController {
     @Autowired
     private PeliculaService peliculaService;
 
-    @GetMapping
+    @GetMapping("/listado")
     public String listarFunciones(Model model) {
-        var funciones = funcionService.listarFunciones();
-        model.addAttribute("funciones", funciones);
-        return "private/admin/funcion/listado-funciones";
+        model.addAttribute("funciones", funcionService.listarFunciones());
+        return "private/funcion/listado";
     }
 
-    @GetMapping("/nueva")
+    @GetMapping("/nuevo")
     public String nuevaFuncion(Model model) {
         model.addAttribute("funcion", new Funcion());
         model.addAttribute("peliculas", peliculaService.listarPeliculas());
-        return "private/admin/funcion/formulario-funcion";
+        return "private/funcion/formulario";
     }
 
     @PostMapping("/guardar")
-    public String guardar(Funcion funcion, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            model.addAttribute("peliculas", peliculaService.listarPeliculas());
-            return "private/admin/funcion/formulario-funcion";
-        }
+    public String guardarFuncion(@ModelAttribute Funcion funcion) {
         funcionService.guardar(funcion);
-        return "redirect:/admin/funcion";
+        return "redirect:/funcion/listado";
     }
 
     @GetMapping("/editar/{id}")
-    public String editar(@PathVariable("id") Long id, Model model) {
+    public String editarFuncion(@PathVariable("id") Long id, Model model) {
         Funcion funcion = new Funcion();
         funcion.setId(id);
-        funcion = funcionService.encontrarFuncion(funcion);
-        model.addAttribute("funcion", funcion);
+        Funcion funcionEncontrada = funcionService.encontrarFuncion(funcion);
+        model.addAttribute("funcion", funcionEncontrada);
         model.addAttribute("peliculas", peliculaService.listarPeliculas());
-        return "private/admin/funcion/formulario-funcion";
+        return "private/funcion/formulario";
     }
 
     @GetMapping("/eliminar/{id}")
-    public String eliminar(@PathVariable("id") Long id) {
+    public String eliminarFuncion(@PathVariable("id") Long id) {
         Funcion funcion = new Funcion();
         funcion.setId(id);
         funcionService.eliminar(funcion);
-        return "redirect:/admin/funcion";
+        return "redirect:/funcion/listado";
     }
 }

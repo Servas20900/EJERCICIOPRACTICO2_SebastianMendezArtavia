@@ -15,47 +15,42 @@ public class PeliculaController {
     @Autowired
     private PeliculaService peliculaService;
 
-    // Método para listar las películas
     @GetMapping
     public String listarPeliculas(Model model) {
         var peliculas = peliculaService.listarPeliculas();
         model.addAttribute("peliculas", peliculas);
-        return "private/admin/listado";  // Vista actualizada
+        return "private/peliculas/listado"; // Ruta corregida
     }
 
-    // Método para mostrar el formulario para agregar una nueva película
     @GetMapping("/nueva")
     public String nuevaPelicula(Model model) {
         model.addAttribute("pelicula", new Pelicula());
-        return "private/admin/formulario";  // Vista actualizada
+        return "private/peliculas/formulario"; // Ruta corregida
     }
 
-    // Método para guardar una nueva película
     @PostMapping("/guardar")
     public String guardar(Pelicula pelicula, BindingResult result) {
         if (result.hasErrors()) {
-            return "private/admin/formulario";  // Vista actualizada
+            return "private/peliculas/formulario"; // Ruta corregida
         }
         peliculaService.guardar(pelicula);
-        return "redirect:/admin/peliculas";  // Redirige a la lista de películas
+        return "redirect:/admin/peliculas";
     }
 
-    // Método para editar una película existente
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable("id") Long id, Model model) {
         Pelicula pelicula = new Pelicula();
         pelicula.setId(id);
         pelicula = peliculaService.encontrarPelicula(pelicula);
         model.addAttribute("pelicula", pelicula);
-        return "private/admin/formulario-pelicula";  // Vista actualizada
+        return "private/peliculas/formulario"; // Ruta corregida
     }
 
-    // Método para eliminar una película
     @GetMapping("/eliminar/{id}")
     public String eliminar(@PathVariable("id") Long id) {
         Pelicula pelicula = new Pelicula();
         pelicula.setId(id);
         peliculaService.eliminar(pelicula);
-        return "redirect:/admin/peliculas";  // Redirige a la lista de películas
+        return "redirect:/admin/peliculas";
     }
 }

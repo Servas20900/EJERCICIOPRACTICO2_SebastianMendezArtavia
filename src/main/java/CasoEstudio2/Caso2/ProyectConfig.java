@@ -21,39 +21,30 @@ public class ProyectConfig {
         this.userDetailsService = userDetailsService;
     }
 
-    // Bean para codificar contraseñas usando BCrypt
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    // Bean para el AuthenticationManager que usa el userDetailsService y el passwordEncoder
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();
     }
 
-    // Configuración de seguridad para las rutas y acceso
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests((requests) -> requests
-                // Permite acceso a las rutas públicas (login, recursos estáticos)
                 .requestMatchers("/", "/login", "/css/**", "/img/**", "/js/**").permitAll()
-                // Se requiere autenticación para las páginas de administración de películas y funciones
-                .requestMatchers("/private/admin/peliculas/**", "/private/admin/funcion/**").authenticated()
-                // Cualquier otra ruta también requiere autenticación
+                .requestMatchers("/private/peliculas/**", "/private/funcion/**","/private/reserva/**").authenticated()
                 .anyRequest().authenticated()
             )
             .formLogin((form) -> form
-                // Página de login personalizada
                 .loginPage("/login")
-                // Redirige al home privado después del login exitoso
                 .defaultSuccessUrl("/private/home", true)
                 .permitAll()
             )
             .logout((logout) -> logout
-                // Redirige al login después de hacer logout
                 .logoutSuccessUrl("/login?logout")
                 .permitAll()
             );
