@@ -11,16 +11,16 @@ body {
 h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 50px;
-  color: #222222; /* Título oscuro */
+  color: #ffffff; /* Título oscuro */
 }
 
 h2, h3, h4 {
   font-size: 24px;
   font-weight: 600;
-  color: #444444; /* Subtítulos oscuros pero suaves */
+  color: #bfddfc; /* Subtítulos oscuros pero suaves */
 }
 
 p {
   font-size: 18px;
-  color: #666666; /* Texto suave y legible */
+  color: #c4ddf5; /* Texto suave y legible */
 }

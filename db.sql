@@ -1,14 +1,14 @@
--- Crear usuario de conexión
+-- Crear la base de datos
+CREATE DATABASE Caso2;
 
-CREATE DATABASE cine_teatro_db;
 
-
-CREATE USER 'usuario_caso2'@'%' IDENTIFIED BY 'Usuario__Clave.';
-GRANT ALL PRIVILEGES ON cine_teatro_db.* TO 'usuario__caso2'@'%';
+-- Crear el usuario y otorgar privilegios
+CREATE USER 'usuario_caso2'@'%' IDENTIFIED BY 'Usuario_Clave.';
+GRANT ALL PRIVILEGES ON Caso2.* TO 'usuario_caso2'@'%';
 FLUSH PRIVILEGES;
 
 -- Usar la base de datos
-USE cine_teatro_db;
+USE Caso2;
 
 -- =========================
 -- 1. TABLAS DE SEGURIDAD
@@ -63,13 +63,17 @@ INSERT INTO usuario (id_usuario, username, password, nombre, apellidos, correo, 
 (3, 'magnusx', '$2a$10$koGR7eS22Pv5KdaVJKDcge04ZB53iMiw76.UjHPY.XyVYlYqXnPbO', 'Magnus', 'Mendez Artavia', 'magnus.alvarado@gmail.com', '6044-9191');
 
 -- Roles base
-INSERT INTO role (rol) VALUES ('ADMIN'), ('USER');
+INSERT INTO role (rol) VALUES ('ADMIN'), ('VENDEDOR'), ('USER');
 
 -- Relación usuario - roles
 INSERT INTO rol (id_rol, nombre, id_usuario) VALUES
 (1, 'ROLE_ADMIN', 1),
+(2, 'ROLE_VENDEDOR', 2),
 (3, 'ROLE_USER', 3),
-(5, 'ROLE_USER', 2);
+(4, 'ROLE_VENDEDOR', 2),
+(5, 'ROLE_USER', 2),
+(6, 'ROLE_USER', 3);
+
 
 
 -- Rutas protegidas
@@ -90,3 +94,19 @@ INSERT INTO ruta_permit (patron) VALUES
 ('/registro/'),
 ('/js/'),
 ('/webjars/');
+
+-- =========================
+-- 5. LIMPIEZA DE LA DB (opcional)
+-- =========================
+
+/*
+-- Primero, datos dependientes (con claves foráneas)
+DELETE FROM venta;
+DELETE FROM factura;
+DELETE FROM producto;
+DELETE FROM categoria;
+DELETE FROM rol;
+
+-- Luego, tabla principal
+DELETE FROM usuario;
+*/

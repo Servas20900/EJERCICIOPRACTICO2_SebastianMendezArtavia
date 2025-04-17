@@ -1,3 +1,4 @@
+
 /* Navbar privada */
 .private-navbar {
   display: flex;
@@ -18,7 +19,7 @@
 
 .private-navbar-logo {
   font-size: 36px;
-  color: #d57a7a;
+  color: #7a57d1;
   text-decoration: none;
 }
 
@@ -33,13 +34,13 @@
 .private-navbar-links li a {
   font-size: 18px;
   font-weight: 600;
-  color: #ffffff;
+  color: #a4bef5;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .private-navbar-links li a:hover {
-  color: #d57a7a;
+  color: #7a57d1;
 }
 
 .private-navbar-carrito {
@@ -53,16 +54,15 @@
 }
 
 .private-cart-icon:hover {
-  color: #d57a7a;
+  color: #7a57d1;
 }
 
-/* Footer común */
 .comun-footer-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: #f1f1f1;
+  background-color: #eaeafe;
   color: #333333;
   margin-top: 50px;
   flex-direction: column;
@@ -74,7 +74,7 @@
 }
 
 .comun-social-link {
-  color: #d57a7a;
+  color: #7a57d1;
   font-size: 20px;
   margin: 0 10px;
   text-decoration: none;
@@ -82,5 +82,5 @@
 }
 
 .comun-social-link:hover {
-  color: #b85c5c;
+  color: #5b3fad;
 }

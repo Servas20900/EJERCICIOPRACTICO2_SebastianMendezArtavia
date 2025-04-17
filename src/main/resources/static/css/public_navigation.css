@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap");
 
 
+
 /* Navbar pública */
 .public-navbar {
   display: flex;
@@ -13,7 +14,7 @@
 
 .public-navbar-logo a {
   font-size: 36px;
-  color: #d57a7a;
+  color: #7a57d1;
   text-decoration: none;
 }
 
@@ -34,7 +35,7 @@
 }
 
 .public-navbar-links li a:hover {
-  color: #d57a7a;
+  color: #7a57d1;
 }
 
 /* Botón general */
@@ -42,7 +43,7 @@
   display: inline-block;
   margin-top: 20px;
   padding: 12px 24px;
-  background-color: #d57a7a;
+  background-color: #7a57d1;
   color: white;
   border-radius: 8px;
   font-weight: 600;
@@ -51,35 +52,5 @@
 }
 
 .btn:hover {
-  background-color: #b85c5c;
+  background-color: #5b3fad;
 }
-
-
-
-footer, .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: #f1f1f1; /* Fondo suave para el footer */
-    color: #ffffff; /* Texto oscuro en el footer */
-    margin-top: 50px;
-    flex-direction: column;
-  }
-  
-  footer p, .footer p {
-    margin: 0;
-    margin-bottom: 10px;
-  }
-  
-  .social-link, .comun-social-link {
-    color: #d57a7a; /* Color suave cálido para los enlaces sociales */
-    font-size: 20px;
-    margin: 0 10px;
-    text-decoration: none;
-  }
-  
-  .social-link:hover, .comun-social-link:hover {
-    color: #b85c5c; /* Hover en los enlaces sociales */
-  }
-  
