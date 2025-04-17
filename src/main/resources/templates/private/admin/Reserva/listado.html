@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head th:replace="~{common/private_navigation :: head}">
+</head>
+<body>
+
+    <header th:replace="~{common/private_navigation :: header}" />
+
+    <h2>Mis Reservas</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Sala</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="reserva : ${reservas}">
+                <td th:text="${reserva.funcion.pelicula.titulo}">Título</td>
+                <td th:text="${reserva.funcion.fecha}">Fecha</td>
+                <td th:text="${reserva.funcion.hora}">Hora</td>
+                <td th:text="${reserva.funcion.sala}">Sala</td>
+                <td th:text="${reserva.cantidad}">Cantidad</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <a th:href="@{/private/home}">Volver al inicio</a>
+    </div>
+    <footer th:replace="~{common/private_navigation :: footer}" />
+
+</body>
+</html>

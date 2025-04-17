@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head th:replace="~{common/private_navigation :: head}">
+</head>
+<body>
+
+    <header th:replace="~{common/private_navigation :: header}" />
+    <h1>Listado de Películas / Obras</h1>
+    
+    <a th:href="@{/admin/peliculas/nueva}">Agregar nueva película / obra</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Tipo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="pelicula : ${peliculas}">
+                <td th:text="${pelicula.titulo}">Título</td>
+                <td th:text="${pelicula.tipo}">Tipo</td>
+                <td>
+                    <a th:href="@{|/admin/peliculas/editar/${pelicula.id}|}">Editar</a> |
+                    <a th:href="@{|/admin/peliculas/eliminar/${pelicula.id}|}"
+                       onclick="return confirm('¿Estás seguro de eliminar esta película/obra?');">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <footer th:replace="~{common/private_navigation :: footer}" />
+
+</body>
+</html>

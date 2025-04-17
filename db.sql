@@ -74,14 +74,16 @@ CREATE TABLE funciones (
 );
 
 -- Tabla de reservas
+-- Tabla de reservas
 CREATE TABLE reservas (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT,
+    id_usuarios INT,
     id_funcion INT,
     cantidad INT,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+    FOREIGN KEY (id_usuarios) REFERENCES usuario(id_usuario),
     FOREIGN KEY (id_funcion) REFERENCES funciones(id)
 );
+
 
 
 -- =========================

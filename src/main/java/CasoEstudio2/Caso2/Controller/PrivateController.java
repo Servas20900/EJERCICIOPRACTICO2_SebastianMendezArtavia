@@ -10,4 +10,10 @@ public class PrivateController {
     public String mostrarHome() {
         return "private/home";
     }
+
+    @GetMapping("/private/") 
+    public String mostrarPeliculaListado() {
+        return "private/admin/peliculas/listado";
+    }
+
 }

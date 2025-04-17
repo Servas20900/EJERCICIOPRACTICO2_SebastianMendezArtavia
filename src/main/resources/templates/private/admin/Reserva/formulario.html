@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head th:replace="~{common/private_navigation :: head}">
+</head>
+<body>
+
+    <header th:replace="~{common/private_navigation :: header}" />
+
+    <h2>Reservar Entradas</h2>
+
+    <form th:action="@{/reservas/guardar}" method="post" th:object="${reserva}">
+        <input type="hidden" th:field="*{funcion.id}" />
+
+        <div>
+            <label>Película/Obra:</label>
+            <span th:text="*{funcion.pelicula.titulo}">Título</span>
+        </div>
+
+        <div>
+            <label>Fecha:</label>
+            <span th:text="*{funcion.fecha}">Fecha</span>
+        </div>
+
+        <div>
+            <label>Hora:</label>
+            <span th:text="*{funcion.hora}">Hora</span>
+        </div>
+
+        <div>
+            <label>Sala:</label>
+            <span th:text="*{funcion.sala}">Sala</span>
+        </div>
+
+        <div>
+            <label>Cantidad:</label>
+            <input type="number" min="1" th:field="*{cantidad}" required />
+        </div>
+
+        <div>
+            <button type="submit">Confirmar Reserva</button>
+            <a th:href="@{/private/home}">Cancelar</a>
+        </div>
+    </form>
+    <footer th:replace="~{common/private_navigation :: footer}" />
+
+</body>
+</html>

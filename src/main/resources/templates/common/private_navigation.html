@@ -15,13 +15,12 @@
     <header th:fragment="header">
         <nav class="private-navbar">
             <div class="private-navbar-items">
-                <div><a class="private-navbar-logo" th:href="@{/}">NAME</a></div>
+                <div><a class="private-navbar-logo" th:href="@{/}">SEBASCINEMA</a></div>
                 <br>
                 <ul class="private-navbar-links">
-                    <li><a th:href="@{/1}">1</a></li>
-                    <li><a th:href="@{/2}">2</a></li>
-                    <li><a th:href="@{/3}">3</a></li>
-                    <li><a th:href="@{/4}">4</a></li>
+                    <li><a th:href="@{/private/admin/peliculas/listado}">Peliculas</a></li>
+                    <li><a th:href="@{/2}">Funciones</a></li>
+                    <li><a th:href="@{/3}">Reservas</a></li>
                     <div class="private-navbar-carrito">
                         <a th:href="@{/carrito/listado}" class="private-cart-icon">
                             <i class="fa-solid fa-cart-shopping"></i>

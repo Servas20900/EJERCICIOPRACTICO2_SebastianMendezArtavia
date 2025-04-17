@@ -33,23 +33,31 @@ public class ProyectConfig {
         return authConfig.getAuthenticationManager();
     }
 
-     @Bean
-     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-         http
-              .authorizeHttpRequests((requests) -> requests
-                  .requestMatchers("/", "/login", "/css/**", "/img/**", "/js/**, \"/private/**\" ").permitAll()
-                  .anyRequest().authenticated()
-              )
-             .formLogin((form) -> form
-                 .loginPage("/login")
-                 .defaultSuccessUrl("/private/home", true)
-                 .permitAll()
-             )
-             .logout((logout) -> logout
-                 .logoutSuccessUrl("/login?logout")
-                 .permitAll()
-             );
+    // Configuración de seguridad para las rutas y acceso
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests((requests) -> requests
+                // Permite acceso a las rutas públicas (login, recursos estáticos)
+                .requestMatchers("/", "/login", "/css/**", "/img/**", "/js/**").permitAll()
+                // Se requiere autenticación para las páginas de administración de películas y funciones
+                .requestMatchers("/private/admin/peliculas/**", "/private/admin/funcion/**").authenticated()
+                // Cualquier otra ruta también requiere autenticación
+                .anyRequest().authenticated()
+            )
+            .formLogin((form) -> form
+                // Página de login personalizada
+                .loginPage("/login")
+                // Redirige al home privado después del login exitoso
+                .defaultSuccessUrl("/private/home", true)
+                .permitAll()
+            )
+            .logout((logout) -> logout
+                // Redirige al login después de hacer logout
+                .logoutSuccessUrl("/login?logout")
+                .permitAll()
+            );
 
-         return http.build();
-     }
+        return http.build();
+    }
 }

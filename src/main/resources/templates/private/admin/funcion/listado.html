@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head th:replace="~{common/private_navigation :: head}">
+</head>
+<body>
+
+    <header th:replace="~{common/private_navigation :: header}" />
+    <h1>Listado de Funciones</h1>
+
+    <a th:href="@{/admin/funcion/nueva}">Agregar nueva función</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Pelicula/Obra</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Sala</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="funcion : ${funciones}">
+                <td th:text="${funcion.pelicula.titulo}">Película/Obra</td>
+                <td th:text="${funcion.fecha}">Fecha</td>
+                <td th:text="${funcion.hora}">Hora</td>
+                <td th:text="${funcion.sala}">Sala</td>
+                <td>
+                    <a th:href="@{|/admin/funcion/editar/${funcion.id}|}">Editar</a> |
+                    <a th:href="@{|/admin/funcion/eliminar/${funcion.id}|}"
+                       onclick="return confirm('¿Estás seguro de eliminar esta función?');">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <footer th:replace="~{common/private_navigation :: footer}" />
+
+</body>
+</html>

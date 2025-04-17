@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head th:replace="~{common/private_navigation :: head}">
+</head>
+<body>
+
+    <header th:replace="~{common/private_navigation :: header}" />
+    <h1 th:text="${funcion.id} != null ? 'Editar Función' : 'Nueva Función'"></h1>
+
+    <form th:action="@{/admin/funcion/guardar}" th:object="${funcion}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+        <label for="pelicula">Película / Obra:</label>
+        <select th:field="*{pelicula}" required>
+            <option value="" disabled>-- Selecciona una película u obra --</option>
+            <option th:each="pelicula : ${peliculas}" 
+                    th:value="${pelicula.id}" 
+                    th:text="${pelicula.titulo}">Película/Obra</option>
+        </select>
+        <br/>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" th:field="*{fecha}" required />
+        <br/>
+
+        <label for="hora">Hora:</label>
+        <input type="time" th:field="*{hora}" required />
+        <br/>
+
+        <label for="sala">Sala:</label>
+        <input type="text" th:field="*{sala}" required />
+        <br/>
+
+        <button type="submit">Guardar</button>
+        <a th:href="@{/admin/funcion}">Cancelar</a>
+    </form>
+    <footer th:replace="~{common/private_navigation :: footer}" />
+
+</body>
+</html>

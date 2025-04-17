@@ -16,5 +16,5 @@ public class RutaPermit implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRuta;
 
-    private String patron; // ejemplo: /login, /registro, /css/**, etc.
+    private String patron; 
 }
