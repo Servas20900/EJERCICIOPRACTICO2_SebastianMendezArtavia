@@ -53,7 +53,39 @@ CREATE TABLE ruta_permit (
 
 
 -- =========================
--- 4. INSERCIÓN DE DATOS
+-- 2. cosas d la profe 
+-- =========================
+
+-- Tabla de películas u obras
+CREATE TABLE peliculas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(150),
+    tipo VARCHAR(20) -- 'PELICULA' o 'OBRA'
+);
+
+-- Tabla de funciones
+CREATE TABLE funciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_pelicula INT,
+    fecha DATE,
+    hora TIME,
+    sala VARCHAR(50),
+    FOREIGN KEY (id_pelicula) REFERENCES peliculas(id)
+);
+
+-- Tabla de reservas
+CREATE TABLE reservas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    id_funcion INT,
+    cantidad INT,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+    FOREIGN KEY (id_funcion) REFERENCES funciones(id)
+);
+
+
+-- =========================
+-- 3. INSERCIÓN DE DATOS
 -- =========================
 
 -- Usuarios
@@ -94,19 +126,25 @@ INSERT INTO ruta_permit (patron) VALUES
 ('/registro/'),
 ('/js/'),
 ('/webjars/');
-
 -- =========================
--- 5. LIMPIEZA DE LA DB (opcional)
--- =========================
+-- 4. INSERCIÓN DE DATOS PROFE
+-- =========================-- 
+-- Insertar películas/obras
+INSERT INTO peliculas (titulo, tipo) VALUES
+('El Rey León', 'OBRA'),
+('Avengers: Endgame', 'PELICULA'),
+('La Bella y la Bestia', 'OBRA'),
+('Spider-Man: No Way Home', 'PELICULA');
 
-/*
--- Primero, datos dependientes (con claves foráneas)
-DELETE FROM venta;
-DELETE FROM factura;
-DELETE FROM producto;
-DELETE FROM categoria;
-DELETE FROM rol;
+-- Insertar funciones
+INSERT INTO funciones (id_pelicula, fecha, hora, sala) VALUES
+(1, '2025-04-20', '18:00:00', 'Sala A'),
+(2, '2025-04-21', '20:00:00', 'Sala B'),
+(3, '2025-04-22', '17:00:00', 'Sala C'),
+(4, '2025-04-23', '21:00:00', 'Sala D');
 
--- Luego, tabla principal
-DELETE FROM usuario;
-*/
+-- Insertar reservas
+INSERT INTO reservas (id_usuario, id_funcion, cantidad) VALUES
+(1, 1, 2),
+(2, 2, 1),
+(1, 4, 3);
