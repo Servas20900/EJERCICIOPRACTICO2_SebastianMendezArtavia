@@ -17,7 +17,6 @@
 }
 
 .private-navbar-logo {
-  font-family: "Great Vibes", cursive;
   font-size: 36px;
   color: #d57a7a;
   text-decoration: none;
@@ -34,7 +33,7 @@
 .private-navbar-links li a {
   font-size: 18px;
   font-weight: 600;
-  color: #333333;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }

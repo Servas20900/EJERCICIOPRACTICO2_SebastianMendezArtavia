@@ -1,7 +1,6 @@
 package CasoEstudio2.Caso2.service.impl;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,32 +14,33 @@ import org.springframework.transaction.annotation.Transactional;
 
 import CasoEstudio2.Caso2.Dao.UsuarioDao;
 import CasoEstudio2.Caso2.domain.Rol;
-import CasoEstudio2.Caso2.domain.Usuarios;
+import CasoEstudio2.Caso2.domain.Usuario;
+import CasoEstudio2.Caso2.service.UsuarioDetailsService;
 
 @Service("userDetailsService")
-public class UsuarioDetailsServiceImpl implements UserDetailsService {
+public class UsuarioDetailsServiceImpl implements UsuarioDetailsService, UserDetailsService {
 
     @Autowired
     private UsuarioDao usuarioDao;
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException {
-        // Busca el usuario por nombre
-        Usuarios usuario = usuarioDao.findByNombre(nombre);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        // Busca el usuario por el username en la tabla
+        Usuario usuario = usuarioDao.findByUsername(username);
 
-        // Si no existe el usuario, lanza una excepción
+        // Si no existe el usuario lanza una excepción
         if (usuario == null) {
-            throw new UsernameNotFoundException("Usuario no encontrado con nombre: " + nombre);
+            throw new UsernameNotFoundException(username);
         }
 
-        // Construir lista de roles
-        List<GrantedAuthority> roles = new ArrayList<>();
+        // Sacamos los roles asociados al usuario
+        var roles = new ArrayList<GrantedAuthority>();
         for (Rol rol : usuario.getRoles()) {
             roles.add(new SimpleGrantedAuthority(rol.getNombre()));
         }
 
-        // Devolver objeto User que Spring Security usa internamente
-        return new User(usuario.getNombre(), usuario.getContrasena(), roles);
+        // Se devuelve el usuario como objeto User de Spring Security
+        return new User(usuario.getUsername(), usuario.getPassword(), roles);
     }
 }

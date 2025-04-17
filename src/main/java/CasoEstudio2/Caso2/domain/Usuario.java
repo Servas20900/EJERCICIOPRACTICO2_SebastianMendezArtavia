@@ -17,26 +17,24 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 @Data
 @Table(name="usuario")
-public class Usuarios implements Serializable {
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idUsuario;
 
     @NotEmpty
+    private String username;
+
+    @NotEmpty
+    private String password;
+
     private String nombre;
-
-    @NotEmpty
+    private String apellidos;
     private String correo;
-
-    @NotEmpty
-    private String contrasena;
-
-    @NotEmpty
-    private String rol;
+    private String telefono;
 
     @OneToMany
     @JoinColumn(name="id_usuario")

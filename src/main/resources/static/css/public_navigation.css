@@ -12,7 +12,6 @@
 }
 
 .public-navbar-logo a {
-  font-family: "Great Vibes", cursive;
   font-size: 36px;
   color: #d57a7a;
   text-decoration: none;
@@ -63,7 +62,7 @@ footer, .footer {
     align-items: center;
     padding: 20px;
     background-color: #f1f1f1; /* Fondo suave para el footer */
-    color: #333333; /* Texto oscuro en el footer */
+    color: #ffffff; /* Texto oscuro en el footer */
     margin-top: 50px;
     flex-direction: column;
   }
